@@ -1,0 +1,35 @@
+<% integration = store_integration('yahoo_ads') %>
+
+<% if integration.present? && @order.present? %>
+  <% conversion_tags = integration.conversion_tags(value: @order.total.to_f) %>
+  <% if conversion_tags.any? %>
+    <%# [#1259] Yahoo!広告 コンバージョン測定タグ。
+        設定済みの広告種別ごと(検索広告(YSS)/ディスプレイ広告(YDA))に ytag() を発火する。
+        両方設定されている場合は yss_conversion と ydn_conversion の2件を発火する。
+
+        このパーシャルは checkout_complete_partials として、Spree の order_just_completed?
+        (= session[:checkout_completed] が complete アクションの after_action で削除される)により
+        注文完了ページの初回描画時のみ出力される。したがってリロード/ブラウザバックでは
+        サーバー側で再出力されず、多重発火しない。
+        さらに念のため、注文番号をキーに localStorage でクライアント側もガードし、
+        「1注文につき1回だけ発火」を保証する(GA4 #1063 と同じ「1回だけ発火」の手当て)。 %>
+    <script>
+      (function() {
+        try {
+          var key = 'yahoo_ads_conv_<%= j @order.number %>';
+          if (window.localStorage && window.localStorage.getItem(key)) { return; }
+          if (window.localStorage) { window.localStorage.setItem(key, '1'); }
+        } catch (e) {}
+
+        window.yjDataLayer = window.yjDataLayer || [];
+        function ytag() { yjDataLayer.push(arguments); }
+        <% conversion_tags.each do |tag| %>
+          ytag({
+            "type": "<%= tag[:type] %>",
+            "config": <%= raw tag[:config].to_json %>
+          });
+        <% end %>
+      })();
+    </script>
+  <% end %>
+<% end %>

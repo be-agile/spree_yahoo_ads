@@ -1,0 +1,27 @@
+---
+en:
+  activerecord:
+    attributes:
+      spree/integrations/yahoo_ads:
+        preferred_yss_conversion_id: Search Ads Conversion ID
+        preferred_yss_conversion_label: Search Ads Conversion Label
+        preferred_yda_conversion_id: Display Ads Conversion ID
+        preferred_yda_conversion_label: Display Ads Conversion Label
+  spree:
+    admin:
+      integrations:
+        yahoo_ads:
+          name: Yahoo Ads
+          description: Enable Yahoo! Ads conversion tracking. Track Search Ads (YSS) and Display Ads (YDA) individually or simultaneously. Outputs the site general tag (all pages) and conversion measurement tags (on order completion) to your storefront.
+          form_help: Enter the conversion ID and label for the ad types you use. You can set Search Ads (YSS) and Display Ads (YDA) individually, or both at the same time to track two kinds of conversions.
+          at_least_one_required: Enter the conversion ID and label for at least one of Search Ads (YSS) or Display Ads (YDA).
+          yss_section: Search Ads (YSS)
+          yda_section: Display Ads (YDA)
+          yss_conversion_id: Conversion ID
+          yss_conversion_id_help: The Search Ads (YSS) conversion ID (yahoo_conversion_id).
+          yss_conversion_label: Conversion Label
+          yss_conversion_label_help: The Search Ads (YSS) conversion label (yahoo_conversion_label).
+          yda_conversion_id: Conversion ID
+          yda_conversion_id_help: The Display Ads (YDA) conversion ID (yahoo_ydn_conv_io).
+          yda_conversion_label: Conversion Label
+          yda_conversion_label_help: The Display Ads (YDA) conversion label (yahoo_ydn_conv_label).

@@ -1,0 +1,5 @@
+require 'spree_core'
+require 'spree_extension'
+require 'spree_yahoo_ads/engine'
+require 'spree_yahoo_ads/version'
+require 'spree_yahoo_ads/configuration'

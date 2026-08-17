@@ -1,0 +1,16 @@
+<% integration = store_integration('yahoo_ads') %>
+
+<% if integration.present? %>
+  <%# [#1259] Yahoo!広告 サイトジェネラルタグ。
+      全ページの head に出力し、yclid 付き来訪時にファーストパーティ Cookie(_ycl_yjad)へ
+      yclid を捕捉する(Yahoo 純正タグ)。head の script は Turbo 遷移をまたいで維持され、
+      初回ロードで一度実行されればよいため、per-navigation の再送は不要。 %>
+  <!-- Yahoo Ads Site General Tag -->
+  <script async src="https://s.yimg.jp/images/listing/tool/cv/ytag.js"></script>
+  <script>
+    window.yjDataLayer = window.yjDataLayer || [];
+    function ytag() { yjDataLayer.push(arguments); }
+    ytag({ "type": "ycl_cookie" });
+  </script>
+  <!-- End Yahoo Ads Site General Tag -->
+<% end %>

@@ -1,0 +1,27 @@
+---
+ja:
+  activerecord:
+    attributes:
+      spree/integrations/yahoo_ads:
+        preferred_yss_conversion_id: 検索広告 コンバージョンID
+        preferred_yss_conversion_label: 検索広告 コンバージョンラベル
+        preferred_yda_conversion_id: ディスプレイ広告 コンバージョンID
+        preferred_yda_conversion_label: ディスプレイ広告 コンバージョンラベル
+  spree:
+    admin:
+      integrations:
+        yahoo_ads:
+          name: Yahoo広告
+          description: Yahoo!広告のコンバージョン計測を有効化します。検索広告(YSS)とディスプレイ広告(YDA)を個別または同時に計測できます。サイトジェネラルタグ(全ページ)とコンバージョン測定タグ(注文完了時)をストアフロントに出力します。
+          form_help: 利用する広告種別のコンバージョンID・ラベルを入力してください。検索広告(YSS)・ディスプレイ広告(YDA)は片方だけでも、両方同時に設定して2種類のコンバージョンを計測することもできます。
+          at_least_one_required: 検索広告(YSS)またはディスプレイ広告(YDA)の少なくとも一方のコンバージョンID・ラベルを入力してください。
+          yss_section: 検索広告(YSS)
+          yda_section: ディスプレイ広告(YDA)
+          yss_conversion_id: コンバージョンID
+          yss_conversion_id_help: 検索広告(YSS)のコンバージョンID(yahoo_conversion_id)を入力してください。
+          yss_conversion_label: コンバージョンラベル
+          yss_conversion_label_help: 検索広告(YSS)のコンバージョンラベル(yahoo_conversion_label)を入力してください。
+          yda_conversion_id: コンバージョンID
+          yda_conversion_id_help: ディスプレイ広告(YDA)のコンバージョンID(yahoo_ydn_conv_io)を入力してください。
+          yda_conversion_label: コンバージョンラベル
+          yda_conversion_label_help: ディスプレイ広告(YDA)のコンバージョンラベル(yahoo_ydn_conv_label)を入力してください。

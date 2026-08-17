@@ -1,0 +1,20 @@
+<% i18n_scope = 'admin.integrations.yahoo_ads' %>
+<div class="card mb-4">
+  <div class="card-body">
+    <p class="text-muted"><%= Spree.t("#{i18n_scope}.form_help") %></p>
+
+    <h6 class="font-weight-bold mt-3"><%= Spree.t("#{i18n_scope}.yss_section") %></h6>
+    <%= preference_field(@integration, form, 'yss_conversion_id', i18n_scope: i18n_scope) %>
+    <small class="form-text text-muted mb-3 d-block"><%= Spree.t("#{i18n_scope}.yss_conversion_id_help") %></small>
+
+    <%= preference_field(@integration, form, 'yss_conversion_label', i18n_scope: i18n_scope) %>
+    <small class="form-text text-muted mb-3 d-block"><%= Spree.t("#{i18n_scope}.yss_conversion_label_help") %></small>
+
+    <h6 class="font-weight-bold mt-4"><%= Spree.t("#{i18n_scope}.yda_section") %></h6>
+    <%= preference_field(@integration, form, 'yda_conversion_id', i18n_scope: i18n_scope) %>
+    <small class="form-text text-muted mb-3 d-block"><%= Spree.t("#{i18n_scope}.yda_conversion_id_help") %></small>
+
+    <%= preference_field(@integration, form, 'yda_conversion_label', i18n_scope: i18n_scope) %>
+    <small class="form-text text-muted mb-3 d-block"><%= Spree.t("#{i18n_scope}.yda_conversion_label_help") %></small>
+  </div>
+</div>
